@@ -1,0 +1,80 @@
+poets = [
+  {
+    name: "Gertrude Stein",
+    work: ["Tender Buttons", "The Making of Americans", "Susie Asado"],
+    style: "experimental",
+    influence: {artist: "Pablo Picasso", writer: "Hemmingway"},
+    birthdate: 1874
+  },
+  {
+    name: "Wallace Stevens",
+    work: ["Auroras of Autumn", "Of Mere Being", "Creations of Sound"],
+    style: "modernist",
+    influence: {artist: "Picasso", writer: "T.S. Eliot"},
+    birthdate: 1873
+  }
+]
+
+class AboutPoets
+  attr_accessor :name, :work, :style, :influence, :birthdate
+
+  def initialize(poet_identity)
+    @name = poet_identity[:name]
+    @work = poet_identity[:work]
+    @style = poet_identity[:style]
+    @influence = poet_identity[:influence]
+    @birthdate = poet_identity[:birthdate]
+  end
+
+end
+
+# loop which creates new instance of class AboutPoets.
+poets.each do |hash|
+  new_poet = AboutPoets.new(hash)
+  puts new_poet.name
+  puts new_poet.work
+  puts "The poet's most famous work is #{hash[:work][0]}"
+  puts new_poet.style
+  puts new_poet.influence[:writer]
+  puts "The poet was influenced by the artist #{hash[:influence][:artist]}"
+  puts "The poet was born in #{new_poet.birthdate}"
+  puts ""
+end
+
+
+
+# I made up this data
+colleges = [
+  {
+    name: "University of Washington",
+    top_majors: ["English", "Computer Science", "Nursing"],
+    ranking: 50,
+    tuition: 10500
+  },
+  {
+    name: "Arizona State University",
+    top_majors: ["Environmental Science", "Criminal Justice"],
+    ranking: 68,
+    tuition: 14000
+  }
+]
+
+class CollegeEngine
+  attr_accessor :name, :top_majors, :ranking, :tuition
+
+  def initialize(college_id)
+    @name = college_id[:name]
+    @top_majors = college_id[:top_majors]
+    @ranking = college_id[:ranking]
+    @tuition = college_id[:tuition]
+  end
+end
+
+colleges.each do |hash|
+  new_college = CollegeEngine.new(hash)
+  puts new_college.name
+  puts new_college.top_majors
+  puts "But the bestest major here is #{hash[:top_majors][0]}"
+  puts new_college.tuition
+  puts ""
+end
